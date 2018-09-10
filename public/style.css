@@ -2,3 +2,96 @@
     margin: 0px 0px;
     padding: 20px;
 }
+
+
+.animTranslateX-enter {
+    opacity: 0;
+    transform: translateX(-250px);
+}
+.animTranslateX-enter.animTranslateX-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.9s;
+}
+   
+.animTranslateX-leave {
+    opacity: 1;
+    transform: translateX(0);
+}   
+.animTranslateX-leave.animTranslateX-leave-active {
+    opacity: 0;
+    transform: translateX(250px);
+    transition: 0.9s;
+}
+
+.animTranslateX-appear {
+    opacity: 0;
+    transform: translateX(-250px);
+}
+.animTranslateX-appear.animTranslateX-appear-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.9s;
+}
+
+
+
+.animTranslateY-enter {
+    opacity: 0;
+    transform: translateY(-25px);
+}
+.animTranslateY-enter.animTranslateY-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.9s;
+}
+   
+.animTranslateY-leave {
+    opacity: 1;
+    transform: translateY(0);
+}   
+.animTranslateY-leave.animTranslateY-leave-active {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.9s;
+}
+
+.animTranslateY-appear {
+    opacity: 0;
+    transform: translateY(-25px);
+}
+.animTranslateY-appear.animTranslateY-appear-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.9s;
+}
+
+
+
+.animHeight-appear {
+    opacity: 0;
+    height: 0px;
+}
+.animHeight-appear.animHeight-appear-active {
+    opacity: 1;
+    height: 70px;
+    transition: 0.9s;
+}
+.animHeight-enter {
+    opacity: 0;
+    height: 0px;
+}
+.animHeight-enter.animHeight-enter-active {
+    opacity: 1;
+    height: 70px;
+    transition: 0.9s;
+}
+.animHeight-enter {
+    opacity: 0;
+    height: 0px;
+}
+.animHeight-enter.animHeight-enter-active {
+    opacity: 1;
+    height: 70px;
+    transition: 0.9s;
+}
