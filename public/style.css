@@ -6,7 +6,7 @@
 
 .animTranslateX-enter {
     opacity: 0;
-    transform: translateX(-250px);
+    transform: translateX(-150px);
 }
 .animTranslateX-enter.animTranslateX-enter-active {
     opacity: 1;
@@ -20,13 +20,13 @@
 }   
 .animTranslateX-leave.animTranslateX-leave-active {
     opacity: 0;
-    transform: translateX(250px);
+    transform: translateX(150px);
     transition: 0.9s;
 }
 
 .animTranslateX-appear {
     opacity: 0;
-    transform: translateX(-250px);
+    transform: translateX(-150px);
 }
 .animTranslateX-appear.animTranslateX-appear-active {
     opacity: 1;
