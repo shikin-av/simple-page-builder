@@ -1,9 +1,99 @@
-.public-DraftEditor-content{
-    margin: 0px 0px;
-    padding: 20px;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+body {
+    font-family: Roboto, Arial, Verdana, sans-serif;
 }
 
+.public-DraftEditor-content{
+    margin: 0px 0px;
+    padding: 20px 0px
+}
 
+.preview {
+    height: 100%;
+    min-height: 50px;
+    /*padding: 4px 0px;*/
+    padding: 20px 0px;
+}
+
+.preview-element {
+    padding: 0px 15px;
+}
+
+.public-DraftStyleDefault-block {
+    margin: 0;
+}
+
+p {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+}
+
+h1, h2, h3 {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 400;   
+    margin: 0;
+    display: block; 
+    margin-bottom: 0.35em;
+}
+
+h1 {    
+    font-size: 2.8125rem;
+    line-height: 1.13333em;
+    margin-left: -0.02em;    
+}
+
+h2 {
+    font-size: 2.125rem;
+    line-height: 1.20588em;
+}
+
+h3 {
+    font-size: 1.5rem;
+    line-height: 1.35417em;
+}
+
+.rdw-image-modal {
+    z-index: 1000;
+}
+
+/* images */
+.rdw-image-imagewrapper {
+    max-width: 100%;
+}
+.rdw-image-imagewrapper img {
+    max-width: 100% !important;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
+}
+
+.preview img {
+    max-width: 100% !important;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
+}
+
+.fullwidth img {
+    max-width: 100% !important;
+    /*padding-left: 0px;*/
+    /*padding-right: 0px;*/
+}
+
+.rdw-editor-toolbar img {
+    width: auto !important;
+}
+
+figure {
+    -webkit-margin-start: 0px !important;
+    -webkit-margin-end: 0px !important;
+}
+
+.rdw-image-modal-size {
+    display: none;
+}
+
+/* animations */
 .animTranslateX-enter {
     opacity: 0;
     transform: translateX(-150px);
