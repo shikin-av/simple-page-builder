@@ -58,6 +58,10 @@ h3 {
     z-index: 1000;
 }
 
+ul[role="menu"] {
+    background: white;
+}
+
 /* images */
 .rdw-image-imagewrapper {
     max-width: 100%;
