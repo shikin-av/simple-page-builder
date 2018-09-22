@@ -41,6 +41,7 @@ ReactDOM.render(
     <App 
         saveHandler={save}
         menu={true}
+        mode='edit'
         getPageRows={getPageRows}
     />, 
     document.getElementById('root')
