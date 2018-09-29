@@ -3,9 +3,9 @@ import {array, object, func} from 'prop-types'
 
 import Grid from '@material-ui/core/Grid'
 
-import Svg from 'svg/column-1-2.svg'
-import ElementPlace from 'components/ElementPlace'
-import DividerVertical from 'components/DividerVertical'
+import Svg from '../../svg/column-1-2.svg'
+import ElementPlace from '../ElementPlace'
+import DividerVertical from '../DividerVertical'
 
 export const Column_1_2 = props => {   
     const {

@@ -2,7 +2,7 @@ import {
     TextEditorWithStyles as TextEditor,
     Icon as   TextEditorIcon,
 
-} from 'components/elements/TextEditor'
+} from './TextEditor'
 
 export default [
     {        

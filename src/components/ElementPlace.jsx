@@ -2,8 +2,8 @@ import React from 'react'
 import _ from 'lodash'
 import {object, func, number} from 'prop-types'
 
-import elements from 'components/elements'
-import DeleteDialog from 'components/dialogs/Delete'
+import elements from './elements'
+import DeleteDialog from './dialogs/Delete'
 
 import AddIcon from '@material-ui/icons/Add'
 import {withStyles} from '@material-ui/core/styles'

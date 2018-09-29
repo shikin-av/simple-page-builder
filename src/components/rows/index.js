@@ -3,57 +3,57 @@ import {
     Preview as   FullWidthPreview,
     Icon as      FullWidthIcon,
 
-} from 'components/rows/FullWidth'
+} from './FullWidth'
 import {
     Column_2 as Column_2Edit,
     Preview as  Column_2Preview,
     Icon as     Column_2Icon,
-} from 'components/rows/Column_2'
+} from './Column_2'
 import {
     Column_3 as Column_3Edit,
     Preview as  Column_3Preview,
     Icon as   Column_3Icon,
-} from 'components/rows/Column_3'
+} from './Column_3'
 import {
     Column_4 as Column_4Edit,
     Preview as  Column_4Preview,
     Icon as   Column_4Icon,
-} from 'components/rows/Column_4'
+} from './Column_4'
 import {
     Column_2_1 as Column_2_1Edit,
     Preview as  Column_2_1Preview,
     Icon as   Column_2_1Icon,
-} from 'components/rows/Column_2_1'
+} from './Column_2_1'
 import {
     Column_1_2 as Column_1_2Edit,
     Preview as  Column_1_2Preview,
     Icon as   Column_1_2Icon,
-} from 'components/rows/Column_1_2'
+} from './Column_1_2'
 import {
     Column_3_1 as Column_3_1Edit,
     Preview as  Column_3_1Preview,
     Icon as   Column_3_1Icon,
-} from 'components/rows/Column_3_1'
+} from './Column_3_1'
 import {
     Column_1_3 as Column_1_3Edit,
     Preview as  Column_1_3Preview,
     Icon as   Column_1_3Icon,
-} from 'components/rows/Column_1_3'
+} from './Column_1_3'
 import {
     Column_1_1_2 as Column_1_1_2Edit,
     Preview as  Column_1_1_2Preview,
     Icon as   Column_1_1_2Icon,
-} from 'components/rows/Column_1_1_2'
+} from './Column_1_1_2'
 import {
     Column_2_1_1 as Column_2_1_1Edit,
     Preview as  Column_2_1_1Preview,
     Icon as   Column_2_1_1Icon,
-} from 'components/rows/Column_2_1_1'
+} from './Column_2_1_1'
 import {
     Column_1_2_1 as Column_1_2_1Edit,
     Preview as  Column_1_2_1Preview,
     Icon as   Column_1_2_1Icon,
-} from 'components/rows/Column_1_2_1'
+} from './Column_1_2_1'
 
 export default [
     {       

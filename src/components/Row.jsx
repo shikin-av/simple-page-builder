@@ -18,10 +18,10 @@ import ColorIcon from '@material-ui/icons/ColorLens'
 import UpIcon from '@material-ui/icons/ArrowUpward'
 import DownIcon from '@material-ui/icons/ArrowDownward'
 
-import DeleteDialog from 'components/dialogs/Delete'
-import ColorDialog from 'components/dialogs/SelectColor'
-import DividerGorizontal from 'components/DividerGorizontal'
-import colors from 'colors'
+import DeleteDialog from './dialogs/Delete'
+import ColorDialog from './dialogs/SelectColor'
+import DividerGorizontal from './DividerGorizontal'
+import colors from '../colors'
 
 class Row extends React.Component {
     static propTypes = {

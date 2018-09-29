@@ -5,8 +5,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {withStyles} from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 
-import rows from 'components/rows'
-import ToolButton from 'components/ToolButton'
+import rows from './rows'
+import ToolButton from './ToolButton'
 import Typography from '@material-ui/core/Typography'
 
 class Tools extends React.Component {

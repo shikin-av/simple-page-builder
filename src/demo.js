@@ -1,16 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from 'components/App'
+import App from './components/App'
 
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import grey from '@material-ui/core/colors/grey'
 import orange from '@material-ui/core/colors/orange'
 import lime from '@material-ui/core/colors/lime'
 
-import fake from 'components/fake'
+import fakeData from './fakeData'
 
 const getPageRows = () => {
-    //return fake
+    //return fakeData
     return []
 }
 

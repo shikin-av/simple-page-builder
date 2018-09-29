@@ -16,10 +16,10 @@ import ViewIcon from '@material-ui/icons/Pageview'
 import SaveIcon from '@material-ui/icons/Save'
 import grey from '@material-ui/core/colors/grey'
 
-import Row from 'components/Row'
-import rowTypes from 'components/rows'
-import AppendRow from 'components/AppendRow'
-import DividerGorizontal from 'components/DividerGorizontal'
+import Row from './Row'
+import rowTypes from './rows'
+import AppendRow from './AppendRow'
+import DividerGorizontal from './DividerGorizontal'
 
 const defaultTheme = createMuiTheme({
     palette: {

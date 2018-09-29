@@ -13,8 +13,8 @@ import CloseIcon from '@material-ui/icons/Close'
 import Tooltip from '@material-ui/core/Tooltip'
 import grey from '@material-ui/core/colors/grey'
 
-import Tools from 'components/Tools'
-import TooltipButton from 'components/TooltipButton'
+import Tools from './Tools'
+import TooltipButton from './TooltipButton'
 
 class AppendRow extends React.Component {
     static propTypes = {

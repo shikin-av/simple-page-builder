@@ -3,8 +3,8 @@ import {array, object, func} from 'prop-types'
 
 import Grid from '@material-ui/core/Grid'
 
-import Svg from 'svg/column-full.svg'
-import ElementPlace from 'components/ElementPlace'
+import Svg from '../../svg/column-full.svg'
+import ElementPlace from '../ElementPlace'
 
 export const FullWidth = props => {
     const {
