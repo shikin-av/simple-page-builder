@@ -3,6 +3,7 @@ import 'typeface-roboto'
 import _ from 'lodash'
 import {object, func, bool, string} from 'prop-types'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactDOM from 'react-dom'
 
 import {
     withStyles,
@@ -39,6 +40,7 @@ class App extends React.Component {
         menu:        bool.isRequired,
         mode:        string,
         getPageRows: func,
+        theme:       object.isRequired,
     }
 
     state = {
@@ -56,6 +58,16 @@ class App extends React.Component {
             window.theme = Object.assign(defaultTheme, window.theme)    
         }
         document.body.style.backgroundColor = window.theme.palette.background
+    }
+
+    componentWillReceiveProps = nextProps => {
+        const oldTheme = this.props.theme
+        const newTheme = nextProps.theme
+        
+        if(newTheme !== oldTheme){
+            //window.theme = Object.assign(defaultTheme, nextProps.theme)
+            document.body.style.backgroundColor = window.theme.palette.background
+        }        
     }
 
     showToolsHandler = val => {
@@ -190,7 +202,17 @@ class App extends React.Component {
                     <Tooltip title='Сохранить страницу'>
                         <Button                                
                             onClick={this.save}
-                            className={classes.menuButton}                            
+                            className={classes.menuButton}
+                            ref={'saveBtn'}
+                            style={{color: window.theme.palette.contrast}}
+                            onMouseEnter={() => {
+                                const el = ReactDOM.findDOMNode(this.refs.saveBtn)
+                                el.style.color = window.theme.palette.primary.main
+                            }}
+                            onMouseLeave={() => {
+                                const el = ReactDOM.findDOMNode(this.refs.saveBtn)
+                                el.style.color = window.theme.palette.contrast
+                            }}
                         >
                             <SaveIcon/>Сохранить
                         </Button>   
@@ -200,7 +222,16 @@ class App extends React.Component {
                         <Tooltip title='Предпросмотр страницы'>
                             <Button
                                 onClick={() => this.changeMode('preview')}
-                                className={classes.menuButton}
+                                ref={'previewBtn'}
+                                style={{color: window.theme.palette.contrast}}
+                                onMouseEnter={() => {
+                                    const el = ReactDOM.findDOMNode(this.refs.previewBtn)
+                                    el.style.color = window.theme.palette.primary.main
+                                }}
+                                onMouseLeave={() => {
+                                    const el = ReactDOM.findDOMNode(this.refs.previewBtn)
+                                    el.style.color = window.theme.palette.contrast
+                                }}
                             >
                                 <ViewIcon/>Предпросмотр
                             </Button>
@@ -211,7 +242,16 @@ class App extends React.Component {
                         <Tooltip title='Редактирование страницы'>
                             <Button
                                 onClick={() => this.changeMode('edit')}
-                                className={classes.menuButton}
+                                ref={'editBtn'}
+                                style={{color: window.theme.palette.contrast}}
+                                onMouseEnter={() => {
+                                    const el = ReactDOM.findDOMNode(this.refs.editBtn)
+                                    el.style.color = window.theme.palette.primary.main
+                                }}
+                                onMouseLeave={() => {
+                                    const el = ReactDOM.findDOMNode(this.refs.editBtn)
+                                    el.style.color = window.theme.palette.contrast
+                                }}
                             >
                                 <ViewIcon/>Редактор
                             </Button>
@@ -234,7 +274,12 @@ class App extends React.Component {
         return (
             <MuiThemeProvider theme={window.theme}>
                 <CssBaseline/>
-                <div className={classes.root}>                    
+                <div 
+                    className={classes.root}
+                    style={{
+                        color: `${window.theme.palette.contrast}`,
+                    }}
+                >                    
                     {this.menu()}
                     {
                         mode === 'edit' &&
@@ -322,8 +367,6 @@ class App extends React.Component {
 
 const styles = () => ({
     root: {        
-        backgroundColor: window.theme.palette.background,
-        color: `${window.theme.palette.contrast} !important`,
         top: 0,
         left: 0,
         width: '100%',        
@@ -333,13 +376,6 @@ const styles = () => ({
         marginBottom: 30,
         paddingTop: 10,
     },
-    menuButton: {
-        color: `${window.theme.palette.contrast} !important`,
-
-        '&:hover': {
-            color: `${window.theme.palette.primary.main} !important`,
-        }
-    }
 })
 
 export default withStyles(styles)(App)

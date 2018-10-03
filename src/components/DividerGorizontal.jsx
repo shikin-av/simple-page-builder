@@ -13,6 +13,7 @@ const DividerGorizontal = props => (
                 opacity: 0,
             } : {
                 opacity: 1,
+                backgroundColor: '#0000001f',
             }
         }
     />
