@@ -5,7 +5,7 @@ import SPB from './components/App'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import grey from '@material-ui/core/colors/grey'
 import orange from '@material-ui/core/colors/orange'
-import lime from '@material-ui/core/colors/lime'
+import green from '@material-ui/core/colors/green'
 import Button from '@material-ui/core/Button'
 
 import fakeData from './fakeData'
@@ -19,6 +19,17 @@ const save = rows => {
     console.log('SAVE', rows)
 }
 
+const defaultTheme = createMuiTheme({
+    palette: {
+        primary:   {main: grey[500]},
+        secondary: {main: grey[300]},
+        background:       grey[50],
+        contrast:         grey[700],
+        menuBackground:   grey[100],
+        menuText:         grey[700]
+    },
+})
+
 const orangeNightTheme =  createMuiTheme({
     palette: {
         primary:   {main: orange[500]},
@@ -30,23 +41,23 @@ const orangeNightTheme =  createMuiTheme({
 
 const whiteGreenTheme = createMuiTheme({
     palette: {
-        primary:   {main: lime[500]},
-        secondary: {main: lime[300]},
+        primary:   {main: green[500]},
+        secondary: {main: green[300]},
         background:       grey[50],
         contrast:         grey[700],
     },
 })
 
-window.theme = whiteGreenTheme
+const theme = Object.assign(defaultTheme, whiteGreenTheme)
 
 class ChangeThemeApp extends React.Component {
     state = {
-        theme: window.theme,
+        theme: theme,
     }
 
     changeTheme = theme => {
-        window.theme = theme
-        this.setState({theme})
+        const currentTheme = Object.assign(defaultTheme, theme)
+        this.setState({theme: currentTheme})
     }
 
     render(){
@@ -80,7 +91,7 @@ const App = () => (
         menu={true}
         mode='edit'
         getPageRows={getPageRows}
-        theme={window.theme}
+        theme={theme}
     />
 )
 

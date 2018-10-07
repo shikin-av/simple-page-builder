@@ -7,31 +7,18 @@ import ReactDOM from 'react-dom'
 
 import {
     withStyles,
-    MuiThemeProvider,
-    createMuiTheme
+    MuiThemeProvider
 } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Tooltip from '@material-ui/core/Tooltip'
 import Button from '@material-ui/core/Button'
 import ViewIcon from '@material-ui/icons/Pageview'
 import SaveIcon from '@material-ui/icons/Save'
-import grey from '@material-ui/core/colors/grey'
 
 import Row from './Row'
 import rowTypes from './rows'
 import AppendRow from './AppendRow'
 import DividerGorizontal from './DividerGorizontal'
-
-const defaultTheme = createMuiTheme({
-    palette: {
-        primary:   {main: grey[500]},
-        secondary: {main: grey[300]},
-        background:       grey[50],
-        contrast:         grey[700],
-        menuBackground:   grey[100],
-        menuText:         grey[700]
-    },
-})
 
 class App extends React.Component {
     static propTypes = {
@@ -52,22 +39,14 @@ class App extends React.Component {
     tmpRows = this.state.rows   
     
     componentWillMount = () => {
-        if(!window.theme){
-            window.theme = defaultTheme
-        } else {
-            window.theme = Object.assign(defaultTheme, window.theme)    
-        }
-        document.body.style.backgroundColor = window.theme.palette.background
+        const {theme} = this.props        
+        document.body.style.backgroundColor = theme.palette.background
     }
 
     componentWillReceiveProps = nextProps => {
         const oldTheme = this.props.theme
         const newTheme = nextProps.theme
-        
-        if(newTheme !== oldTheme){
-            //window.theme = Object.assign(defaultTheme, nextProps.theme)
-            document.body.style.backgroundColor = window.theme.palette.background
-        }        
+        document.body.style.backgroundColor = newTheme.palette.background
     }
 
     showToolsHandler = val => {
@@ -194,7 +173,11 @@ class App extends React.Component {
     )
 
     menu = () => {
-        const {classes, menu} = this.props
+        const {
+            classes, 
+            menu,
+            theme,
+        } = this.props
         const {mode} = this.state        
         if(menu){
             return (
@@ -204,14 +187,14 @@ class App extends React.Component {
                             onClick={this.save}
                             className={classes.menuButton}
                             ref={'saveBtn'}
-                            style={{color: window.theme.palette.contrast}}
+                            style={{color: theme.palette.contrast}}
                             onMouseEnter={() => {
                                 const el = ReactDOM.findDOMNode(this.refs.saveBtn)
-                                el.style.color = window.theme.palette.primary.main
+                                el.style.color = theme.palette.primary.main
                             }}
                             onMouseLeave={() => {
                                 const el = ReactDOM.findDOMNode(this.refs.saveBtn)
-                                el.style.color = window.theme.palette.contrast
+                                el.style.color = theme.palette.contrast
                             }}
                         >
                             <SaveIcon/>Сохранить
@@ -223,14 +206,14 @@ class App extends React.Component {
                             <Button
                                 onClick={() => this.changeMode('preview')}
                                 ref={'previewBtn'}
-                                style={{color: window.theme.palette.contrast}}
+                                style={{color: theme.palette.contrast}}
                                 onMouseEnter={() => {
                                     const el = ReactDOM.findDOMNode(this.refs.previewBtn)
-                                    el.style.color = window.theme.palette.primary.main
+                                    el.style.color = theme.palette.primary.main
                                 }}
                                 onMouseLeave={() => {
                                     const el = ReactDOM.findDOMNode(this.refs.previewBtn)
-                                    el.style.color = window.theme.palette.contrast
+                                    el.style.color = theme.palette.contrast
                                 }}
                             >
                                 <ViewIcon/>Предпросмотр
@@ -243,14 +226,14 @@ class App extends React.Component {
                             <Button
                                 onClick={() => this.changeMode('edit')}
                                 ref={'editBtn'}
-                                style={{color: window.theme.palette.contrast}}
+                                style={{color: theme.palette.contrast}}
                                 onMouseEnter={() => {
                                     const el = ReactDOM.findDOMNode(this.refs.editBtn)
-                                    el.style.color = window.theme.palette.primary.main
+                                    el.style.color = theme.palette.primary.main
                                 }}
                                 onMouseLeave={() => {
                                     const el = ReactDOM.findDOMNode(this.refs.editBtn)
-                                    el.style.color = window.theme.palette.contrast
+                                    el.style.color = theme.palette.contrast
                                 }}
                             >
                                 <ViewIcon/>Редактор
@@ -264,7 +247,7 @@ class App extends React.Component {
     }
     
     render() {
-        const {classes} = this.props
+        const {classes, theme} = this.props
         const {
             mode, 
             rows, 
@@ -272,12 +255,12 @@ class App extends React.Component {
         } = this.state
         
         return (
-            <MuiThemeProvider theme={window.theme}>
-                <CssBaseline/>
+            <MuiThemeProvider theme={theme}>
+                <CssBaseline/>                                  
                 <div 
                     className={classes.root}
                     style={{
-                        color: `${window.theme.palette.contrast}`,
+                        color: `${theme.palette.contrast}`,
                     }}
                 >                    
                     {this.menu()}
@@ -288,6 +271,7 @@ class App extends React.Component {
                             isShowTools={isShowTools}
                             addRowHandler={this.addRow}
                             id={Math.random()}
+                            theme={theme}
                         />
                     }
                     {mode === 'preview' && this.appendRowFake()}
@@ -334,6 +318,7 @@ class App extends React.Component {
                                             moveHandler={this.moveRowHandler}
                                             position={position}
                                             rowsCount={rows.length}
+                                            theme={theme}
                                         >
                                             <RowView 
                                                 elements={row.elements} 
@@ -342,6 +327,7 @@ class App extends React.Component {
                                                 addElementHandler={this.addElement}
                                                 moveHandler={this.moveHandler}
                                                 changeContentHandler={this.changeElementContent}
+                                                theme={theme}
                                             />
                                         </Row>                                        
                                         {
@@ -351,6 +337,7 @@ class App extends React.Component {
                                                 isShowTools={isShowTools}
                                                 addRowHandler={this.addRow}
                                                 id={row.id}
+                                                theme={theme}
                                             />
                                         }
                                         {mode === 'preview' && this.appendRowFake()}

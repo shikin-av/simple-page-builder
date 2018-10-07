@@ -1,6 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import {object, func, number} from 'prop-types'
+import ReactDOM from 'react-dom'
 
 import elements from './elements'
 import DeleteDialog from './dialogs/Delete'
@@ -24,6 +25,7 @@ class ElementPlace extends React.Component {
         addElementHandler:    func.isRequired,
         rowPlace:             number.isRequired,
         changeContentHandler: func.isRequired,
+        theme:                object.isRequired,
     }
 
     state = {
@@ -144,7 +146,10 @@ class ElementPlace extends React.Component {
             showElements,
             mouseEnter,
         } = this.state
-        const {element: elementProps} = this.props
+        const {
+            element: elementProps,
+            theme,
+        } = this.props
         const {
             classes,
             row,
@@ -168,6 +173,7 @@ class ElementPlace extends React.Component {
                         row={row}
                         changeContent={this.props.changeContentHandler}
                         rowPlace={rowPlace}
+                        theme={theme}
                     />
                 </Grid>
             )
@@ -178,12 +184,27 @@ class ElementPlace extends React.Component {
                         <div className={classes.elements}>
                             {
                                 elements.map(element => {
-                                    return (
+                                    return (                                        
                                         <Tooltip title={element.tooltip} key={element.type}>
                                             <IconButton
                                                 variant='outlined'
                                                 className={classes.button}
                                                 onClick={() => this.addElement(element)}
+                                                style={{
+                                                    color:           theme.palette.contrast,
+                                                    backgroundColor: theme.palette.secondary.main,
+                                                }}                
+                                                ref={'elementBtn'}                            
+                                                onMouseLeave={() => {
+                                                    const el = ReactDOM.findDOMNode(this.refs.elementBtn)
+                                                    el.style.color           = theme.palette.contrast
+                                                    el.style.backgroundColor = theme.palette.secondary.main
+                                                }}
+                                                onMouseEnter={() => {
+                                                    const el = ReactDOM.findDOMNode(this.refs.elementBtn)
+                                                    el.style.color           = theme.palette.background
+                                                    el.style.backgroundColor = theme.palette.contrast
+                                                }}
                                             >
                                                 <element.icon/>
                                             </IconButton>
@@ -202,6 +223,21 @@ class ElementPlace extends React.Component {
                                 variant='outlined'
                                 className={classes.button}
                                 onClick={() => this.setState({showElements: true})}
+                                style={{
+                                    color:           theme.palette.contrast,
+                                    backgroundColor: theme.palette.secondary.main,
+                                }}
+                                ref={'addElementBtn'}                            
+                                onMouseLeave={() => {
+                                    const el = ReactDOM.findDOMNode(this.refs.addElementBtn)
+                                    el.style.color           = theme.palette.contrast
+                                    el.style.backgroundColor = theme.palette.secondary.main
+                                }}
+                                onMouseEnter={() => {
+                                    const el = ReactDOM.findDOMNode(this.refs.addElementBtn)
+                                    el.style.color           = theme.palette.background
+                                    el.style.backgroundColor = theme.palette.contrast
+                                }}
                             >
                                 <AddIcon/>
                             </IconButton>
@@ -221,17 +257,11 @@ const styles = () => ({
     button: {
         display: 'block',
         margin: '0 auto',
-        marginTop: 19,
-        backgroundColor: window.theme.palette.secondary.main,
+        marginTop: 19,        
         borderRadius: 4,
         width: 36,
         height: 36,
         boxShadow: '0px -3px 10px -13px rgba(0, 0, 0, 0.2), 0px 3px 14px 2px rgba(0, 0, 0, 0.16)',
-        color: window.theme.palette.contrast,
-        '&:hover': {
-            color: window.theme.palette.background,
-            backgroundColor: window.theme.palette.contrast,
-        }
     },
     elements: {
         margin: '0 auto',

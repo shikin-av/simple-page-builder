@@ -13,12 +13,23 @@ class Tools extends React.Component {
     static propTypes = {
         classes:          object.isRequired,
         selectRowHandler: func.isRequired,
+        theme:            object.isRequired,
     }
 
     render(){
-        const {classes, selectRowHandler} = this.props
+        const {
+            classes, 
+            selectRowHandler,
+            theme,
+        } = this.props
         return (
-            <Toolbar className={classes.root}>
+            <Toolbar 
+                className={classes.root}
+                style={{
+                    background: theme.palette.contrast,
+                    border:     `3px solid ${theme.palette.primary.main}`,
+                }}
+            >
                 <div className={classes.panel}>
                     <ReactCSSTransitionGroup
                         transitionName='animTranslateX'
@@ -33,7 +44,9 @@ class Tools extends React.Component {
                             <Typography
                                 variant='button'
                                 gutterBottom
-                                className={classes.titleText}
+                                style={{
+                                    color: theme.palette.background,
+                                }}
                             >
                                 Выберите блок
                             </Typography>
@@ -47,6 +60,7 @@ class Tools extends React.Component {
                                         key={type}
                                         type={type}
                                         clickHandler={selectRowHandler}
+                                        theme={theme}
                                     />
                                 )
                             })
@@ -58,10 +72,8 @@ class Tools extends React.Component {
     }
 }
 
-const styles = theme => ({
+const styles = () => ({
     root: {
-        background: window.theme.palette.contrast,
-        border: `3px solid ${window.theme.palette.primary.main}`,
         borderLeft: 0,
         borderRight: 0,
     },
@@ -73,9 +85,6 @@ const styles = theme => ({
         marginBottom: -10,
         paddingTop: 15,
     },
-    titleText: {
-        color: window.theme.palette.background,
-    }
 })
 
 export default withStyles(styles)(Tools)

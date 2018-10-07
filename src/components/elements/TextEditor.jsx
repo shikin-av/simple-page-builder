@@ -18,6 +18,7 @@ class TextEditor extends React.Component {
 		rowPlace:	   number.isRequired,
 		element:       object.isRequired,
 		changeContent: func.isRequired,
+		theme:		   object.isRequired,
 	}
 
 	state = {
@@ -80,10 +81,13 @@ class TextEditor extends React.Component {
 			showToolbar,
 			focus,
 		} = this.state
-		const {classes} = this.props
+		const {
+			classes,
+			theme,
+		} = this.props
 
 	    return (
-			<div className={classes.root}>
+			<div className={classes.root}>				
 				<Editor
 					editorState={editorState}
 					onEditorStateChange={this.onEditorStateChange}
@@ -98,18 +102,28 @@ class TextEditor extends React.Component {
 					toolbar={this.options}
 					wrapperClassName={classes.wrapper}
 					toolbarClassName={this.isMobile ? classes.toolbarFixed : classes.toolbar}
-					toolbarStyle={showToolbar ? {display: 'flex'} : {display: 'none'}}
+					toolbarStyle={
+						showToolbar 
+						? {
+							display: 'flex',
+							outline: `1px solid ${theme.palette.constrast}`
+						} 
+						: {
+							display: 'none',
+							outline: `1px solid ${theme.palette.constrast}`
+						}
+					}
 					wrapperStyle={
 						focus ?
 						{
-							outline: `1px dashed ${window.theme.palette.constrast}`,
+							outline: `1px dashed ${theme.palette.constrast}`,
 							borderRadius: 4,
 							backgroundColor: 'rgba(0,0,0,0.1)',
 						}
 						: {}
 					}
 					placeholder={focus ? '' : 'Текстовый блок'}
-				/>
+				/>						
 			</div>
 	    )
   	}
@@ -130,7 +144,6 @@ const styles = theme => ({
 		width: '100%',
 		zIndex: 100,
 		border: 0,
-		outline: `1px solid ${window.theme.palette.constrast}`,
 		outlineOffset: -1,
 		boxShadow: '0px 6px 11px -3px rgba(0, 0, 0, 0.16)',
 		paddingTop: 10,

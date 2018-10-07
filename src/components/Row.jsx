@@ -36,6 +36,7 @@ class Row extends React.Component {
         addHandler:        func.isRequired,
         deleteHandler:     func.isRequired,
         moveHandler:       func.isRequired,
+        theme:             object.isRequired,
     }
 
     state = {
@@ -72,6 +73,7 @@ class Row extends React.Component {
             classes,
             position,
             rowsCount,
+            theme,
         } = this.props
         const {
             anchorEl,
@@ -84,6 +86,9 @@ class Row extends React.Component {
                     <IconButton
                         onClick={this.openMenu}
                         className={classes.menuButton}
+                        style={{
+                            color: theme.palette.menuText
+                        }}
                     >
                         <MoreVertIcon/>
                     </IconButton>
@@ -235,7 +240,6 @@ const styles = () => ({
         width: 35,
         height: 36,
         right: 0,
-        color: window.theme.palette.menuText,
     },
 })
 

@@ -14,6 +14,7 @@ export const Column_3_1 = props => {
         deleteElementHandler,
         addElementHandler,
         changeContentHandler,
+        theme,
     } = props
     return (
         <Grid container>
@@ -25,6 +26,7 @@ export const Column_3_1 = props => {
                     deleteElementHandler={deleteElementHandler}
                     addElementHandler={addElementHandler}
                     changeContentHandler={changeContentHandler}
+                    theme={theme}
                 />
             </Grid>
             <DividerVertical/>
@@ -36,6 +38,7 @@ export const Column_3_1 = props => {
                     deleteElementHandler={deleteElementHandler}
                     addElementHandler={addElementHandler}
                     changeContentHandler={changeContentHandler}
+                    theme={theme}
                 />
             </Grid>
         </Grid>
@@ -48,6 +51,7 @@ Column_3_1.propTypes = {
     deleteElementHandler: func.isRequired,
     addElementHandler:    func.isRequired,
     changeContentHandler: func.isRequired,
+    theme:                object.isRequired,
 }
 
 export const Preview = props => {

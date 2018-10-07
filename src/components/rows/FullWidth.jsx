@@ -13,6 +13,7 @@ export const FullWidth = props => {
         deleteElementHandler,
         addElementHandler,
         changeContentHandler,
+        theme,
     } = props
     return (
         <Grid container>
@@ -24,6 +25,7 @@ export const FullWidth = props => {
                     deleteElementHandler={deleteElementHandler}
                     addElementHandler={addElementHandler}
                     changeContentHandler={changeContentHandler}
+                    theme={theme}
                 />
             </Grid>
         </Grid>
@@ -36,6 +38,7 @@ FullWidth.propTypes = {
     deleteElementHandler: func.isRequired,
     addElementHandler:    func.isRequired,
     changeContentHandler: func.isRequired,
+    theme:                object.isRequired,
 }
 
 export const Preview = props => {

@@ -6,6 +6,7 @@ import {
     number,
     func
 } from 'prop-types'
+import ReactDOM from 'react-dom'
 
 import IconButton from '@material-ui/core/IconButton'
 import AddIcon from '@material-ui/icons/Add'
@@ -14,7 +15,6 @@ import Tooltip from '@material-ui/core/Tooltip'
 import grey from '@material-ui/core/colors/grey'
 
 import Tools from './Tools'
-import TooltipButton from './TooltipButton'
 
 class AppendRow extends React.Component {
     static propTypes = {
@@ -23,6 +23,7 @@ class AppendRow extends React.Component {
         id:               number.isRequired,
         addRowHandler:    func.isRequired,
         showToolsHandler: func.isRequired,
+        theme:            object.isRequired,
     }
 
     state = {
@@ -52,6 +53,7 @@ class AppendRow extends React.Component {
             classes,
             isShowTools: isShowToolsProps,
             id,
+            theme,
         } = this.props
         const {isShowTools: isShowToolsState} = this.state
 
@@ -59,12 +61,29 @@ class AppendRow extends React.Component {
             return (
                 <div className={classes.root}>
                     <div className={classes.tools}>
-                        <Tools selectRowHandler={val => this.selectRowHandler({type: val, id: id})}/>
+                        <Tools 
+                            selectRowHandler={val => this.selectRowHandler({type: val, id: id})}
+                            theme={theme}
+                        />
                     </div>
                     <Tooltip title='Отменить'>
                         <IconButton
                             className={classes.icon}
-                            style={{margin: '-19px auto 0px auto'}}
+                            style={{
+                                margin: '-19px auto 0px auto',
+                                backgroundColor: theme.palette.primary.main,
+                                color: theme.palette.background,
+                            }}
+                            ref={'closeAppendRowBtn'}                            
+                            onMouseLeave={() => {
+                                const el = ReactDOM.findDOMNode(this.refs.closeAppendRowBtn)
+                                el.style.backgroundColor = theme.palette.primary.main
+                                el.style.color           = theme.palette.background
+                            }}
+                            onMouseEnter={() => {
+                                const el = ReactDOM.findDOMNode(this.refs.closeAppendRowBtn)
+                                el.style.backgroundColor = theme.palette.secondary.main
+                            }}
                             onClick={this.hideTools}
                         >
                             <CloseIcon/>
@@ -74,15 +93,30 @@ class AppendRow extends React.Component {
             )
         } else {
             return (
-                <div className={classes.root}>
-                        <TooltipButton
-                            tooltip='Добавить линию'
+                <div className={classes.root}>                    
+                    <Tooltip title='Добавить линию'>
+                        <IconButton
                             className={classes.icon}
-                            clickHandler={this.isShowTools}
+                            style={{
+                                backgroundColor: theme.palette.primary.main,
+                                color: theme.palette.background,
+                            }}
+                            ref={'addRowBtn'}                            
+                            onMouseLeave={() => {
+                                const el = ReactDOM.findDOMNode(this.refs.addRowBtn)
+                                el.style.backgroundColor = theme.palette.primary.main
+                                el.style.color           = theme.palette.background
+                            }}
+                            onMouseEnter={() => {
+                                const el = ReactDOM.findDOMNode(this.refs.addRowBtn)
+                                el.style.backgroundColor = theme.palette.secondary.main
+                            }}
+                            onClick={this.isShowTools}
                             disabled={isShowToolsProps}
                         >
                             <AddIcon/>
-                        </TooltipButton>
+                        </IconButton>
+                    </Tooltip>
                 </div>
             )
         }
@@ -101,12 +135,9 @@ const styles = () => ({
         margin: '0 auto',
         marginBottom: '0px',
         display: 'block',
-        backgroundColor: window.theme.palette.primary.main,
-        color: window.theme.palette.background,
         transition: '0.9s',
         boxShadow: '0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 4px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)',
         '&:hover': {
-            backgroundColor: window.theme.palette.secondary.main,
             transition: `background-color ${delay}ms`,
         },
         '&:disabled': {
@@ -125,3 +156,5 @@ const styles = () => ({
 })
 
 export default withStyles(styles)(AppendRow)
+
+
