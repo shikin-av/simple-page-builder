@@ -281,11 +281,11 @@ class App extends React.Component {
                     <ReactCSSTransitionGroup 
                         transitionName='animTranslateY'                        
                         transitionAppear={true}
-                        transitionAppearTimeout={900}
+                        transitionAppearTimeout={1900}
                         transitionEnter={true}
-                        transitionEnterTimeout={900}
+                        transitionEnterTimeout={1900}
                         transitionLeave={true}
-                        transitionLeaveTimeout={900}
+                        transitionLeaveTimeout={1900}
                     >                        
                         {                            
                             rows.map((row, i) => {
