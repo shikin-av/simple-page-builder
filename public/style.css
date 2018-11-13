@@ -189,3 +189,28 @@ figure {
     height: 70px;
     transition: 0.9s;
 }
+
+
+.animOpacity-enter {
+    opacity: 0;  
+  }
+  .animOpacity-enter.animOpacity-enter-active {
+    opacity: 1;  
+    transition: opacity 1.9s ease, filter 1.9s ease;
+  }
+   
+  .animOpacity-leave {
+    opacity: 1;  
+  }   
+  .animOpacity-leave.animOpacity-leave-active {
+    opacity: 0;  
+    transition: opacity 1.9s ease, filter 1.9s ease;
+  }
+  
+  .animOpacity-appear {
+    opacity: 0;  
+  }
+  .animOpacity-appear.animOpacity-appear-active {
+    opacity: 1;  
+    transition: opacity 1.9s ease, filter 1.9s ease;
+  }

@@ -1,40 +1,41 @@
 export default [            
     {
         id: 10,
-        type: 'fullwidth',        
+        type: 'fullwidth', 
+        color: 'rgb(63, 81, 181)',
         elements: [
             {
                 id: 111,
                 type: 'texteditor',
                 content: `
-                <h1 style="color: rgb(124,112,107);">Ехал Грека</h1>
-                <h2 style="color: rgb(124,112,107);">Через реку</h2>
-                <h3 style="color: rgb(124,112,107);">видит Грека</h3>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>`.trim()
+                <h2 style="color: rgb(239, 239, 239); text-align: center;">Скороговорки</h2><h3 style="color: rgb(239, 239, 239); text-align: center;">Вместо текста-рыбы</h3>`.trim()
             }
         ]
     },
     {
         id: 11,
         type: 'column_2',
-        color: '#fdd835',
+        color: 'rgb(238, 238, 238)',
         elements: [
             {
                 id: 222,
                 type: 'texteditor',
-                content: '<p style="color: rgb(40,50,78);">видит грека</p>'
+                content: `
+                <p style="color: rgb(40,50,78);">Баркас приехал в порт Мадрас.</p>
+                <p style="color: rgb(40,50,78);">Матрос принёс на борт матрас.</p>
+                <p style="color: rgb(40,50,78);">В порту Мадрас матрас матроса</p>
+                <p style="color: rgb(40,50,78);">Порвали в драке альбатросы.</p>
+                `.trim()
             },
             {
                 id: 333,
                 type: 'texteditor',
-                content: '<p style="color: rgb(40,50,78);">в реке рак</p>'
+                content: `
+                <p style="color: rgb(40,50,78);">Ехал Грека через реку,</p>
+                <p style="color: rgb(40,50,78);">Видит Грека - в реке рак.</p>
+                <p style="color: rgb(40,50,78);">Сунул Грека руку в реку,</p>
+                <p style="color: rgb(40,50,78);">Рак за руку Грека - цап!</p>
+                `.trim()
             }
         ]
     },
@@ -45,153 +46,19 @@ export default [
             {
                 id: 444,
                 type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
+                content: '<p style="color: rgb(40, 50, 78);">Корабли лавировали, лавировали, да не вылавировали.</p>'
             },
             {
                 id: 555,
                 type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
+                content: '<p style="color: rgb(40, 50, 78);">На дворе трава, на траве дрова. Не руби дрова на траве двора.</p>'
             },
             {
                 id: 666,
                 type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
+                content: '<p style="color: rgb(40, 50, 78);">Карл у Клары украл кораллы, Клара у Карла украла кларнет.</p>'
             }
         ]
     },
-    {
-        id: 13,
-        type: 'column_2',
-        elements: []
-    },
-    {
-        id: 101,
-        type: 'fullwidth',        
-        elements: [
-            {
-                id: 1111,
-                type: 'texteditor',
-                content: `
-                <h1 style="color: rgb(124,112,107);">Ехал Грека</h1>
-                <h2 style="color: rgb(124,112,107);">Через реку</h2>
-                <h3 style="color: rgb(124,112,107);">видит Грека</h3>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>`.trim()
-            }
-        ]
-    },
-    {
-        id: 111,
-        type: 'column_2',
-        color: '#fdd835',
-        elements: [
-            {
-                id: 2221,
-                type: 'texteditor',
-                content: '<p style="color: rgb(40,50,78);">видит грека</p>'
-            },
-            {
-                id: 3331,
-                type: 'texteditor',
-                content: '<p style="color: rgb(40,50,78);">в реке рак</p>'
-            }
-        ]
-    },
-    {
-        id: 121,
-        type: 'column_3',
-        elements: [
-            {
-                id: 4441,
-                type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
-            },
-            {
-                id: 5551,
-                type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
-            },
-            {
-                id: 6661,
-                type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
-            }
-        ]
-    },
-    {
-        id: 131,
-        type: 'column_2',
-        elements: []
-    },
-    {
-        id: 101,
-        type: 'fullwidth',        
-        elements: [
-            {
-                id: 1111,
-                type: 'texteditor',
-                content: `
-                <h1 style="color: rgb(124,112,107);">Ехал Грека</h1>
-                <h2 style="color: rgb(124,112,107);">Через реку</h2>
-                <h3 style="color: rgb(124,112,107);">видит Грека</h3>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>
-                <p style="color: rgb(124,112,107);">В реке рак. <strong>Сунул Грека руку в реку</strong>, рак за руку греку цап</p>`.trim()
-            }
-        ]
-    },
-    {
-        id: 1111,
-        type: 'column_2',
-        color: '#fdd835',
-        elements: [
-            {
-                id: 22211,
-                type: 'texteditor',
-                content: '<p style="color: rgb(40,50,78);">видит грека</p>'
-            },
-            {
-                id: 33311,
-                type: 'texteditor',
-                content: '<p style="color: rgb(40,50,78);">в реке рак</p>'
-            }
-        ]
-    },
-    {
-        id: 1211,
-        type: 'column_3',
-        elements: [
-            {
-                id: 44411,
-                type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
-            },
-            {
-                id: 55511,
-                type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
-            },
-            {
-                id: 66611,
-                type: 'texteditor',
-                content: '<p style="color: rgb(124,112,107);">рак за руку греку цап</p>'
-            }
-        ]
-    },
-    {
-        id: 1311,
-        type: 'column_2',
-        elements: []
-    }
+    
 ]

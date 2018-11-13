@@ -5,7 +5,7 @@ import SPB from './components/App'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import grey from '@material-ui/core/colors/grey'
 import orange from '@material-ui/core/colors/orange'
-import green from '@material-ui/core/colors/green'
+import deepPurple from '@material-ui/core/colors/deepPurple'
 import Button from '@material-ui/core/Button'
 
 import fakeData from './fakeData'
@@ -39,16 +39,16 @@ const orangeNightTheme =  createMuiTheme({
     },
 })
 
-const whiteGreenTheme = createMuiTheme({
+const whitedeepPurpleTheme = createMuiTheme({
     palette: {
-        primary:   {main: green[500]},
-        secondary: {main: green[300]},
+        primary:   {main: deepPurple[500]},
+        secondary: {main: deepPurple[300]},
         background:       grey[50],
         contrast:         grey[700],
     },
 })
 
-const theme = Object.assign(defaultTheme, whiteGreenTheme)
+const theme = Object.assign(defaultTheme, whitedeepPurpleTheme)
 
 class ChangeThemeApp extends React.Component {
     state = {

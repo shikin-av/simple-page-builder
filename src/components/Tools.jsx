@@ -1,13 +1,13 @@
 import React from 'react'
 import {object, func} from 'prop-types'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {withStyles} from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
 
 import rows from './rows'
 import ToolButton from './ToolButton'
-import Typography from '@material-ui/core/Typography'
+import Animation from './Animation'
 
 class Tools extends React.Component {
     static propTypes = {
@@ -30,16 +30,8 @@ class Tools extends React.Component {
                     border:     `3px solid ${theme.palette.primary.main}`,
                 }}
             >
-                <div className={classes.panel}>
-                    <ReactCSSTransitionGroup
-                        transitionName='animTranslateX'
-                        transitionAppear={true}
-                        transitionAppearTimeout={900}
-                        transitionEnter={true}
-                        transitionEnterTimeout={900}
-                        transitionLeave={true}
-                        transitionLeaveTimeout={900}
-                    >
+                <div className={classes.panel}>                    
+                    <Animation animationCssClass='animTranslateX'>
                         <div className={classes.titleBlock}>
                             <Typography
                                 variant='button'
@@ -65,7 +57,7 @@ class Tools extends React.Component {
                                 )
                             })
                         }
-                    </ReactCSSTransitionGroup>
+                    </Animation>
                 </div>
             </Toolbar>
         )

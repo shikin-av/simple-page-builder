@@ -1,70 +1,39 @@
 import React from 'react'
-import {array, object, func} from 'prop-types'
 
 import Grid from '@material-ui/core/Grid'
 
 import Svg from '../../svg/column-1-2-1.svg'
 import ElementPlace from '../ElementPlace'
 import DividerVertical from '../DividerVertical'
+import row from './row'
 
-export const Column_1_2_1 = props => {
-    const {
-        elements, 
-        row,
-        deleteElementHandler,
-        addElementHandler,
-        changeContentHandler,
-        theme,
-    } = props    
-    return (
-        <Grid container>
-            <Grid item xs={12} sm={3}>
-                <ElementPlace 
-                    element={elements[0]}
-                    row={row}
-                    rowPlace={0}
-                    deleteElementHandler={deleteElementHandler}
-                    addElementHandler={addElementHandler}
-                    changeContentHandler={changeContentHandler}
-                    theme={theme}
-                />
-            </Grid>
-            <DividerVertical/>
-            <Grid item xs={12} sm={6}>
-                <ElementPlace 
-                    element={elements[1]}
-                    row={row}
-                    rowPlace={1}
-                    deleteElementHandler={deleteElementHandler}
-                    addElementHandler={addElementHandler}
-                    changeContentHandler={changeContentHandler}
-                    theme={theme}
-                />
-            </Grid>
-            <DividerVertical/>
-            <Grid item xs={12} sm={3}>
-                <ElementPlace 
-                    element={elements[2]}
-                    row={row}
-                    rowPlace={2}
-                    deleteElementHandler={deleteElementHandler}
-                    addElementHandler={addElementHandler}
-                    changeContentHandler={changeContentHandler}
-                    theme={theme}
-                />
-            </Grid>
+export const Column_1_2_1 = row(props => (
+    <Grid container>
+        <Grid item xs={12} sm={3}>
+            <ElementPlace 
+                {...props}
+                element={props.elements[0]}
+                rowPlace={0}
+            />
         </Grid>
-    )            
-}
-
-Column_1_2_1.propTypes = {
-    elements:             array.isRequired,
-    row:                  object.isRequired,
-    deleteElementHandler: func.isRequired,
-    addElementHandler:    func.isRequired,
-    changeContentHandler: func.isRequired,
-    theme:                object.isRequired,
-}
+        <DividerVertical/>
+        <Grid item xs={12} sm={6}>
+            <ElementPlace 
+                {...props}
+                element={props.elements[1]}
+                rowPlace={1}
+            />
+        </Grid>
+        <DividerVertical/>
+        <Grid item xs={12} sm={3}>
+            <ElementPlace 
+                {...props}
+                element={props.elements[2]}
+                rowPlace={2}
+            />
+        </Grid>
+    </Grid>
+))
 
 export const Preview = props => {
     const {elements} = props
