@@ -87,54 +87,22 @@ Stored in `src/components/rows`
 
 Example for double column grid:
 
-	import Svg from '../../svg/column-full.svg'	// SVG icon for toolbar (`src/components/Tools.jsx`)
-	import ElementPlace from '../ElementPlace'	// The location of the Element
-	import row from './row'                         // HOC for passing props 
+	import React from 'react'
+	import icon from '../../svg/column-2.svg'
+	import rowRender, {sectionHoc as section} from './rowRender'
 
-	export const YourRow = row(props => (   // for `edit` mode
-	    <div>
-	        <div className='your-double-column'>
-	            <ElementPlace 
-	                {...props}
-	                element={props.elements[0]}
-	                rowPlace={0}
-	            />
-	        </div>
-	        <div className='your-double-column'>
-	            <ElementPlace 
-	                {...props}
-	                element={props.elements[1]}
-	                rowPlace={1}
-	            />
-	        </div>
-	    </div>
-	))
+	const sections = [
+	    section(props => <div className='your-double-column' {...props}/>),
+	    section(props => <div className='your-double-column' {...props}/>),
+	]
 
-	export const Preview = props => {   // for `preview` mode
-	    const {elements} = props
-	    let content1 = null
-	    let content2 = null
-	    if(elements.length){
-	        if(elements[0] && elements[0].hasOwnProperty('content')) content1 = elements[0].content
-	        if(elements[1] && elements[1].hasOwnProperty('content')) content2 = elements[1].content    
-	    }    
-	    return (
-	        <div>
-	            <div 
-                  className='your-double-column'
-                  dangerouslySetInnerHTML={{__html: content1}}
-              />
-	            <div 
-                  className='your-double-column'
-                  dangerouslySetInnerHTML={{__html: content2}}
-              />
-	        </div>
-	    )
-	}
+	export default rowRender({
+	    name: 'your-double-column-grid',
+	    sections,
+	    icon,
+	})
 
-	export const Icon = Svg
-
-Append your row component to `src/components/rows/index.js`
+Import your row component to `src/components/rows/index.js`
 
 Likewise made `Element` - (take a look `src/components/elements`)
 
