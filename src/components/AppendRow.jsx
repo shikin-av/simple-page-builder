@@ -6,7 +6,6 @@ import {
     number,
     func
 } from 'prop-types'
-import ReactDOM from 'react-dom'
 
 import IconButton from '@material-ui/core/IconButton'
 import AddIcon from '@material-ui/icons/Add'
@@ -74,16 +73,6 @@ class AppendRow extends React.Component {
                                 backgroundColor: theme.palette.primary.main,
                                 color: theme.palette.background,
                             }}
-                            ref={'closeAppendRowBtn'}                            
-                            onMouseLeave={() => {
-                                const el = ReactDOM.findDOMNode(this.refs.closeAppendRowBtn)
-                                el.style.backgroundColor = theme.palette.primary.main
-                                el.style.color           = theme.palette.background
-                            }}
-                            onMouseEnter={() => {
-                                const el = ReactDOM.findDOMNode(this.refs.closeAppendRowBtn)
-                                el.style.backgroundColor = theme.palette.secondary.main
-                            }}
                             onClick={this.hideTools}
                         >
                             <CloseIcon/>
@@ -100,16 +89,6 @@ class AppendRow extends React.Component {
                             style={{
                                 backgroundColor: theme.palette.primary.main,
                                 color: theme.palette.background,
-                            }}
-                            ref={'addRowBtn'}                            
-                            onMouseLeave={() => {
-                                const el = ReactDOM.findDOMNode(this.refs.addRowBtn)
-                                el.style.backgroundColor = theme.palette.primary.main
-                                el.style.color           = theme.palette.background
-                            }}
-                            onMouseEnter={() => {
-                                const el = ReactDOM.findDOMNode(this.refs.addRowBtn)
-                                el.style.backgroundColor = theme.palette.secondary.main
                             }}
                             onClick={this.isShowTools}
                             disabled={isShowToolsProps}

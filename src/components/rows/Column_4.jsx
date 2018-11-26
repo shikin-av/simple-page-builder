@@ -1,88 +1,17 @@
 import React from 'react'
-
 import Grid from '@material-ui/core/Grid'
+import icon from '../../svg/column-4.svg'
+import rowRender, {sectionHoc as section} from './rowRender'
 
-import Svg from '../../svg/column-4.svg'
-import ElementPlace from '../ElementPlace'
-import DividerVertical from '../DividerVertical'
-import row from './row'
+const sections = [
+    section(props => <Grid item xs={12} sm={3} {...props}/>),
+    section(props => <Grid item xs={12} sm={3} {...props}/>),
+    section(props => <Grid item xs={12} sm={3} {...props}/>),
+    section(props => <Grid item xs={12} sm={3} {...props}/>),
+]
 
-export const Column_4 = row(props => (
-    <Grid container>
-        <Grid item xs={12} sm={3}>
-            <ElementPlace 
-                {...props}
-                element={props.elements[0]}
-                rowPlace={0}                
-            />
-        </Grid>
-        <DividerVertical/>
-        <Grid item xs={12} sm={3}>
-            <ElementPlace 
-                {...props}
-                element={props.elements[1]}
-                rowPlace={1}                
-            />
-        </Grid>
-        <DividerVertical/>
-        <Grid item xs={12} sm={3}>
-            <ElementPlace 
-                {...props}
-                element={props.elements[2]}
-                rowPlace={2}                
-            />
-        </Grid>
-        <DividerVertical/>
-        <Grid item xs={12} sm={3}>
-            <ElementPlace 
-                {...props}
-                element={props.elements[3]}
-                rowPlace={3}                
-            />
-        </Grid>
-    </Grid>
-))
-
-export const Preview = props => {
-    const {elements} = props
-    let content1 = null
-    let content2 = null
-    let content3 = null
-    let content4 = null
-    if(elements.length){
-        if(elements[0] && elements[0].hasOwnProperty('content')) content1 = elements[0].content
-        if(elements[1] && elements[1].hasOwnProperty('content')) content2 = elements[1].content    
-        if(elements[2] && elements[2].hasOwnProperty('content')) content3 = elements[2].content
-        if(elements[3] && elements[3].hasOwnProperty('content')) content4 = elements[3].content    
-    }
-    return (
-        <Grid container className='preview'>            
-            <Grid 
-                item 
-                xs={12} sm={3} 
-                dangerouslySetInnerHTML={{__html: content1}}
-                className='preview-element'
-            />
-            <Grid 
-                item 
-                xs={12} sm={3} 
-                dangerouslySetInnerHTML={{__html: content2}}
-                className='preview-element'
-            />
-            <Grid 
-                item 
-                xs={12} sm={3} 
-                dangerouslySetInnerHTML={{__html: content3}}
-                className='preview-element'
-            />
-            <Grid 
-                item 
-                xs={12} sm={3} 
-                dangerouslySetInnerHTML={{__html: content4}}
-                className='preview-element'
-            />            
-        </Grid>
-    )
-}
-
-export const Icon = Svg
+export default rowRender({
+	name: 'column4',
+	sections,
+	icon,
+})

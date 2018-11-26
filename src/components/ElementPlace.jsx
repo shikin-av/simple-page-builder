@@ -1,7 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
 import {object, func, number} from 'prop-types'
-import ReactDOM from 'react-dom'
 
 import elements from './elements'
 import DeleteDialog from './dialogs/Delete'
@@ -155,7 +154,6 @@ class ElementPlace extends React.Component {
             row,
             rowPlace,
         } = this.props
-
         if(elementState){
             return (
                 <Grid item
@@ -193,18 +191,7 @@ class ElementPlace extends React.Component {
                                                 style={{
                                                     color:           theme.palette.contrast,
                                                     backgroundColor: theme.palette.secondary.main,
-                                                }}                
-                                                ref={'elementBtn'}                            
-                                                onMouseLeave={() => {
-                                                    const el = ReactDOM.findDOMNode(this.refs.elementBtn)
-                                                    el.style.color           = theme.palette.contrast
-                                                    el.style.backgroundColor = theme.palette.secondary.main
-                                                }}
-                                                onMouseEnter={() => {
-                                                    const el = ReactDOM.findDOMNode(this.refs.elementBtn)
-                                                    el.style.color           = theme.palette.background
-                                                    el.style.backgroundColor = theme.palette.contrast
-                                                }}
+                                                }} 
                                             >
                                                 <element.icon/>
                                             </IconButton>
@@ -226,17 +213,6 @@ class ElementPlace extends React.Component {
                                 style={{
                                     color:           theme.palette.contrast,
                                     backgroundColor: theme.palette.secondary.main,
-                                }}
-                                ref={'addElementBtn'}                            
-                                onMouseLeave={() => {
-                                    const el = ReactDOM.findDOMNode(this.refs.addElementBtn)
-                                    el.style.color           = theme.palette.contrast
-                                    el.style.backgroundColor = theme.palette.secondary.main
-                                }}
-                                onMouseEnter={() => {
-                                    const el = ReactDOM.findDOMNode(this.refs.addElementBtn)
-                                    el.style.color           = theme.palette.background
-                                    el.style.backgroundColor = theme.palette.contrast
                                 }}
                             >
                                 <AddIcon/>
